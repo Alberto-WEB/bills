@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buy;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -17,7 +19,29 @@ class ProductController extends Controller
     {   
         $products = Product::all();
         //dd($product);
-        return view('Client.index', compact('products'));
+        return view('client.index', compact('products'));
+    }
+
+
+    public function buy(Request $request){
+
+        $product = DB::table('products')
+        ->where('id', '=', $request->product_id)
+        ->decrement('stock', 1);
+        //dd($product);
+        //return $product;
+
+        $buy = new Buy();
+        $buy -> amount = new Product(['price']);
+        dd($buy);
+        $buy->save();
+
+
+        return redirect('/producto')->with('status', 'Compra realizada con exito');
+        
+       /*  $product = new Product();
+        $product->id = $request->input('product_id');
+        dd($product); */
     }
 
    

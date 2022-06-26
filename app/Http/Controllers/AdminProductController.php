@@ -17,7 +17,7 @@ class AdminProductController extends Controller
     {
         $products = Product::all();
         //dd($products);
-        return view('Admin.index', compact('products'));
+        return view('admin.index', compact('products'));
     }
 
     
