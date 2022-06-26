@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/producto', [ProductController::class, 'index'])->name('product');
+Route::get('/producto', [ProductController::class, 'index'])->name('product')->middleware('auth');
+Route::get('/producto-admin', [AdminProductController::class, 'index'])->name('admin.product')->middleware('auth');
+
