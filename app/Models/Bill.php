@@ -9,8 +9,8 @@ class Bill extends Model
 {
     use HasFactory;
     
-    //relacion uno a uno
+    //relacion uno a uno (inversa)
     public function buy(){
-        return $this->hasOne(Buy::class, 'id');
+        return $this->belongsTo(Buy::class, 'buy_id');
     }
 }

@@ -19,8 +19,8 @@ class Buy extends Model
         return $this->belongsTo(Product::class, 'product_id');
     }
 
-     //relacion uno a uno (inversa)
+     //relacion uno a uno
      public function bill(){
-        return $this->belongsTo(Bill::class, 'bill_id');
+        return $this->hasOne(Bill::class, 'id');
     }
 }
