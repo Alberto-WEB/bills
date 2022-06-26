@@ -6,10 +6,19 @@
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-              
-                <a class="navbar-brand" href="{{ url('/') }}">
+                
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Bills') }}
                 </a>
+        
+                @if (auth()->user()->rol == 'CLIENT')
+                <a class="nav-link" href="{{ route('product') }}">Productos</a>
+                
+                @endif
+        
+                @if (auth()->user()->rol == 'ADMIN')
+                    <a class="nav-link" href="{{ route('admin.product') }}">Productos Admin</a>
+                @endif
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -60,9 +69,7 @@
                 </div>
             </div>
         </nav>
-        
-      {{--   @include('includes.menu') --}}
-
+       
         <main class="py-4">
             @yield('content')
         </main>
