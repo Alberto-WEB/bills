@@ -9,6 +9,10 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name', 'price', 'tax', 'stoke',
+    ]; 
+
     //relacion uno a uno
     public function buy(){
         return $this->hasOne(Buy::class, 'id');

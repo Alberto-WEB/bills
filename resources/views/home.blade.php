@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <h5>Hola Bienvenido: {{ Auth::user()->name }}</h5>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi optio ducimus repudiandae tenetur officia temporibus odit ex cupiditate atque voluptate, eum exercitationem rerum repellat dolor porro! Ex soluta ab earum.</p>
                 </div>
             </div>
         </div>
