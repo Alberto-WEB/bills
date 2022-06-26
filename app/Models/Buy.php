@@ -9,6 +9,10 @@ class Buy extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'amount', 'price', 'user_id', 'product_id', 'bill_id'
+    ]; 
+
     //relacion uno a muchos(inversa)
     public function usuario() {
         return $this->belongsTo(User::class, 'user_id');
