@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Bill extends Model
 {
     use HasFactory;
+    
+    //relacion uno a uno
+    public function buy(){
+        return $this->hasOne(Buy::class, 'id');
+    }
 }
