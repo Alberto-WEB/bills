@@ -18,7 +18,10 @@
                        <label for="">Seleciona tu producto: </label>
                         <select>
                             @foreach ($products as $product)
-                            <option >{{ $product->name }}</option>
+                                <option >
+                                    Nombre: {{ $product->name }},
+                                    Precio: {{ $product->price }}  + IVA
+                                </option>
                             @endforeach
                         </select>
                         <br>
