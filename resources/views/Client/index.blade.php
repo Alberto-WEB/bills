@@ -13,26 +13,29 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
-                   
-                       <label for="">Seleciona tu producto: </label>
-                        <select>
-                            @foreach ($products as $product)
-                                <option >
-                                    Nombre: {{ $product->name }},
-                                    Precio: {{ $product->price }}  + IVA
-                                </option>
-                            @endforeach
-                        </select>
-                        <br>
-                        <button type="submit">Comprar</button>
+                       
+                        @if (session('succes'))
+                            <br>
+                            {{ session('succes') }}
+                        @endif
+                        <form action="{{ route('client.buy') }}" method="POST">
+                            @csrf
+                            
+                            <select name="product_id" id="product" required>
+                                <option value="">Seleciona tu producto</option>
+                                    @foreach ($products as $product)
+                                        <option value="{{ $product->id }}"
+                                            @if ($product->stock == 0)
+                                                disabled
+                                            @endif
+                                            >
+                                            {{ $product['name'] }} Precio: {{ $product['price'] }}</option>
+                                    @endforeach
+                            </select>
+                            <br><br>
+                            <button type="submit">Comprar</button>
+                        </form>
                         
-                   {{--  <ul>
-                        @foreach ($products as $product)
-                            <li>{{ $product->name }}</li>
-                            <li>{{ $product->price }}</li>
-                        @endforeach
-                    </ul> --}}
                 </div>
             </div>
         </div>

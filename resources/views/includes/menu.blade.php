@@ -12,7 +12,7 @@
                 </a>
         
                 @if (auth()->user()->rol == 'CLIENT')
-                <a class="nav-link" href="{{ route('product') }}">Productos</a>
+                <a class="nav-link" href="{{ route('client.product') }}">Productos</a>
                 
                 @endif
         
