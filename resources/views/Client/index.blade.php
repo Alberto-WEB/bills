@@ -29,12 +29,12 @@
                                                 disabled
                                             @endif
                                             >
-                                            {{ $product['name'] }} Precio: {{ $product['price'] }}</option>
+                                            {{ $product['name'] }} con un precio: {{ $product['price'] }}</option>
                                     @endforeach
                             </select>
                             <br><br>
 
-                            <select name="price" id="price" required>
+                           {{--  <select name="price" id="price" required>
                                 <option value="">Seleciona el precio</option>
                                     @foreach ($products as $product)
                                         <option value="{{ $product->price }}"
@@ -44,7 +44,7 @@
                                             >
                                              Precio: {{ $product['price'] }}</option>
                                     @endforeach
-                            </select>
+                            </select> --}}
                             <button type="submit">Comprar</button>
                         </form>
                         

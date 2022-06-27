@@ -36,8 +36,8 @@ class ProductController extends Controller
         $buy->user_id = Auth::user()->id;
         $buy->product_id = $request->product_id;
         //$buy -> amount = 100;
-        $buy->price = $request->price;
-        dd($buy);
+        //$buy->price = $request->price;
+        //dd($buy);
         $buy->save();
 
 
