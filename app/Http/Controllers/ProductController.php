@@ -6,6 +6,7 @@ use App\Models\Buy;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -32,7 +33,10 @@ class ProductController extends Controller
         //return $product;
 
         $buy = new Buy();
-        $buy -> amount = new Product(['price']);
+        $buy->user_id = Auth::user()->id;
+        $buy->product_id = $request->product_id;
+        //$buy -> amount = 100;
+        $buy->price = $request->price;
         dd($buy);
         $buy->save();
 

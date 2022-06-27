@@ -21,10 +21,10 @@
                         <form action="{{ route('client.buy') }}" method="POST">
                             @csrf
                             
-                            <select name="product_id" id="product" required>
+                            <select name="product_id" id="product_id" required>
                                 <option value="">Seleciona tu producto</option>
                                     @foreach ($products as $product)
-                                        <option value="{{ $product->id }}"
+                                        <option value="{{ $product->id }}" {{ $product->price }}
                                             @if ($product->stock == 0)
                                                 disabled
                                             @endif
@@ -33,6 +33,18 @@
                                     @endforeach
                             </select>
                             <br><br>
+
+                            <select name="price" id="price" required>
+                                <option value="">Seleciona el precio</option>
+                                    @foreach ($products as $product)
+                                        <option value="{{ $product->price }}"
+                                            @if ($product->stock == 0)
+                                                disabled
+                                            @endif
+                                            >
+                                             Precio: {{ $product['price'] }}</option>
+                                    @endforeach
+                            </select>
                             <button type="submit">Comprar</button>
                         </form>
                         
