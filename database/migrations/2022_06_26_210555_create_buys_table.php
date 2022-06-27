@@ -16,7 +16,7 @@ class CreateBuysTable extends Migration
         Schema::create('buys', function (Blueprint $table) {
             $table->id();
             //$table->string('amount');
-            $table->float('price');
+            //$table->float('price');
             $table->timestamps();
 
             $table->unsignedBigInteger('user_id');
